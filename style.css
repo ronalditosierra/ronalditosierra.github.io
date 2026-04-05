@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(170deg, #fff0f5 0%, #ffe4ec 55%, #ffd6e7 100%);
+    font-family: 'Poppins', sans-serif;
+    height: 100dvh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* ¡Cero scroll, pura magia! 🪄 */
+    color: #333;
+}
+
+#flowerCanvas {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* Distribución perfecta ⚖️ */
+    align-items: center;
+    height: 90vh;
+    /* Dejamos margen para que no toque los bordes */
+    width: 95%;
+    max-width: 800px;
+}
+
+.title {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    color: #d63384;
+    opacity: 0;
+    margin-bottom: 0;
+    padding: 10px;
+    /* ¡Espacio vital! 🌳 */
+    line-height: 1.2;
+}
+
+.question {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(3.5rem, 12vw, 7.5rem);
+    background: linear-gradient(120deg, #c2185b, #ff6eb4, #c2185b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    line-height: 1.2;
+    /* ¡Más aire para las letras! 🎈 */
+    margin: 5px 0;
+    padding: 0.15em;
+    /* Previene el recorte del degradado 💎 */
+    opacity: 0;
+    display: inline-block;
+    /* Ayuda a que el box se ajuste mejor */
+}
+
+/* CONTENEDOR DE FOTOS — ¡Vivan los novios! 👰🤵 */
+.photos-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    opacity: 0;
+}
+
+.img-frame {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(214, 51, 132, 0.3);
+    background: #fff;
+    border: 3px solid #ffb3c6;
+    transition: transform 0.3s ease;
+}
+
+.img-frame:hover {
+    transform: scale(1.05) rotate(2deg);
+    /* ¡Un pequeño bailecito! 💃 */
+}
+
+.sticker-frame {
+    width: clamp(100px, 20vw, 150px);
+    height: clamp(100px, 20vw, 150px);
+}
+
+.photo-frame {
+    width: clamp(140px, 30vw, 200px);
+    height: clamp(180px, 40vw, 260px);
+}
+
+.img-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.sticker-frame img {
+    object-fit: contain;
+    padding: 8px;
+}
+
+.frame-glow {
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: linear-gradient(45deg, #ff6eb4, #ffb3c6, #ff6eb4);
+    z-index: -1;
+    filter: blur(6px);
+    opacity: 0.4;
+}
+
+/* 🏃 SECCIÓN POCOYÓ 🏃 */
+.pocoyo-section {
+    opacity: 0;
+}
+
+.pocoyo-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(1rem, 4vw, 1.8rem);
+    color: #c2185b;
+    font-weight: 300;
+    font-style: italic;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 8px 25px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(214, 51, 132, 0.1);
+    display: inline-block;
+}
+
+/* 📱 RESPONSIVE EXTRA-SMART */
+@media (max-height: 500px) {
+    .container {
+        height: 95vh;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .question {
+        font-size: 2.5rem;
+        width: 100%;
+    }
+
+    .photos-container {
+        width: 50%;
+        width: auto;
+    }
+}
